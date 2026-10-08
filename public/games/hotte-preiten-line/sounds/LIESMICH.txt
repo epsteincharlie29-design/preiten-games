@@ -1,0 +1,19 @@
+EIGENE SOUNDS FÜR DEN ENDBOSS (RUSSIAN HACKER BOI)
+==========================================
+
+Leg deine Sounddateien einfach in DIESEN Ordner ("sounds") und benenne sie so:
+
+  boss_music   -> Musik während des Endboss-Kampfs (läuft in Schleife)
+  boss_intro   -> wenn Russian Hacker Boi den Kampf startet (Lachen / Spruch)
+  boss_hit     -> wenn Russian Hacker Boi getroffen wird
+  boss_attack  -> wenn er einen großen Angriff startet
+  boss_laser   -> wenn sein Laser losfeuert
+  boss_phase   -> wenn er in die nächste Phase wechselt
+  boss_death   -> wenn er besiegt ist
+  boss_win     -> wenn er DICH erwischt (Spott)
+
+Erlaubte Formate: .mp3  .ogg  .wav  .m4a
+Beispiel:  sounds/boss_music.mp3
+
+Fehlt eine Datei, nimmt das Spiel automatisch einen eingebauten Synth-Sound.
+Nach dem Reinlegen einfach das Spiel neu laden (F5).

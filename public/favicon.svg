@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14" shape-rendering="crispEdges">
+  <!-- Pixel-Gamepad: Preiten Games -->
+  <path fill="#0b0720" d="M3 1h16v1h1v1h1v8h-1v1h-1v1h-4v-1h-1v-1H8v1H7v1H3v-1H2v-1H1V3h1V2h1z"/>
+  <path fill="#6656a8" d="M3 2h16v1h1v8h-1v1h-3v-1h-1v-1H7v1H6v1H3v-1H2V3h1z"/>
+  <path fill="#8676c8" d="M3 2h16v1H3z M2 3h1v6H2z"/>
+  <!-- Steuerkreuz -->
+  <path fill="#0b0720" d="M5 4h2v2h2v2H7v2H5V8H3V6h2z"/>
+  <!-- Knöpfe -->
+  <rect x="15" y="4" width="2" height="2" fill="#ffc800"/>
+  <rect x="17" y="6" width="2" height="2" fill="#e0262c"/>
+  <rect x="13" y="6" width="2" height="2" fill="#1fa83d"/>
+  <rect x="15" y="8" width="2" height="2" fill="#3563f2"/>
+</svg>

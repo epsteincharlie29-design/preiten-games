@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preiten Games</title>
+  <meta name="description" content="Preiten Games – Retro-Spiele direkt im Browser. Jetzt PreitenWars spielen!">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=Press+Start+2P&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="floor" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Preiten Games Startseite">
+      <span class="cube" aria-hidden="true"></span>
+      <span class="brand-text">PREITEN<b>GAMES</b></span>
+    </a>
+    <nav>
+      <a href="#spiele">Spiele</a>
+      <a href="#info">Info</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <h1 class="logo" aria-label="Preiten Games">
+        <span class="logo-row" data-word="PREITEN"></span>
+        <span class="logo-row gold" data-word="GAMES"></span>
+      </h1>
+      <p class="tagline">Retro-Spiele direkt im Browser</p>
+      <a class="btn btn-blue big" href="#spiele" data-sfx>▶ Spiel wählen</a>
+      <p class="press-start">PRESS START</p>
+    </section>
+
+    <section id="spiele" class="games">
+      <h2 class="section-title">Wähle ein Spiel</h2>
+      <p class="hint">← → auswählen · Enter starten</p>
+      <div class="shelf" id="shelf" role="listbox" aria-label="Spiele"></div>
+
+      <div class="details panel" id="details" aria-live="polite"></div>
+    </section>
+
+    <section id="info" class="info panel">
+      <h2 class="section-title small">Was ist Preiten Games?</h2>
+      <p>
+        Preiten Games ist unsere kleine Retro-Spielesammlung. Kein Download, keine Werbung –
+        einfach Modul auswählen und losspielen. Neue Spiele kommen nach und nach dazu!
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Preiten Games</p>
+    <p class="credits">PreitenWars basiert auf <a href="https://github.com/openfrontio/OpenFrontIO" target="_blank" rel="noopener">OpenFront</a> (AGPL-3.0) · © OpenFront and Contributors · <a href="https://github.com/DEIN-NAME/preitenwars" target="_blank" rel="noopener">Quellcode von PreitenWars</a></p>
+  </footer>
+
+  <div class="dialog-backdrop" id="dialog" hidden>
+    <div class="dialog panel" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+      <h3 id="dialog-title">Server offline</h3>
+      <p id="dialog-text">Das Spiel ist gerade nicht erreichbar. Versuch es später nochmal!</p>
+      <button class="btn btn-yellow" id="dialog-ok" data-sfx>OK</button>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
