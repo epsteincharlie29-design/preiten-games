@@ -191,7 +191,7 @@ const carts = games.map((g, i) => {
 // ---------------------------------------------------------------- Auswahl & Details
 const details = document.getElementById("details");
 function statusText(id) {
-  return { online: "Server online", offline: "Server offline", checking: "Prüfe Server …", locked: "Gesperrt" }[status[id]] || "";
+  return { online: "Server online", offline: "Server offline", checking: "Server startet … (bis zu 1 Min)", locked: "Gesperrt" }[status[id]] || "";
 }
 function renderDetails() {
   const g = games[selected];
@@ -227,18 +227,20 @@ function select(i, sound) {
 }
 
 // ---------------------------------------------------------------- Server-Status
-async function checkServer(g) {
+async function checkServer(g, tries = 0) {
   if (g.url === null) { status[g.id] = "locked"; return; }
   if (!g.url) { status[g.id] = "offline"; return; }
-  status[g.id] = "checking";
-  renderDetails();
+  if (tries === 0) { status[g.id] = "checking"; renderDetails(); }
   const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), 6000);
+  const timer = setTimeout(() => ctrl.abort(), 10000);
   try {
-    // no-cors: Antwort ist nicht lesbar, aber ein Netzwerkfehler heißt "offline"
+    // no-cors: Antwort ist nicht lesbar, aber ein Netzwerkfehler heißt "noch nicht da".
+    // Ein schlafender Gratis-Server (Render) wird durch diese Anfrage aufgeweckt.
     await fetch(g.url, { mode: "no-cors", cache: "no-store", signal: ctrl.signal });
     status[g.id] = "online";
   } catch {
+    // Server wacht gerade auf: bis zu ~3 Minuten weiter probieren
+    if (tries < 18) { clearTimeout(timer); setTimeout(() => checkServer(g, tries + 1), 1000); return; }
     status[g.id] = "offline";
   } finally {
     clearTimeout(timer);
@@ -262,7 +264,7 @@ function play(i) {
   const g = games[i];
   if (!g) return;
   if (g.url === null) { sfxError(); return showDialog("Gesperrt", "Dieses Spiel ist noch nicht fertig. Bald verfügbar!"); }
-  if (!g.url || status[g.id] === "offline") {
+  if (!g.url) {
     sfxError();
     return showDialog("Server offline", "Das Spiel ist gerade nicht erreichbar. Versuch es später nochmal!");
   }
@@ -290,7 +292,7 @@ document.querySelectorAll("[data-sfx]").forEach((el) => el.addEventListener("cli
 if (games.length) {
   carts.forEach((c, k) => c.setAttribute("aria-selected", k === 0 ? "true" : "false"));
   renderDetails();
-  games.forEach(checkServer);
+  games.forEach((g) => checkServer(g));   // weckt schlafende Server gleich beim Öffnen der Seite
 } else {
   details.hidden = true;
 }

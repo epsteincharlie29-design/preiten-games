@@ -22,7 +22,7 @@ window.PREITEN_CONFIG = {
         "Erobere die Welt! Breite dein Reich aus, schick Truppen und Boote los und kämpfe gegen Bots oder deine Freunde.",
       tags: ["Strategie", "Multiplayer", "Solo"],
       // >>> Nach dem Render-Start hier deine PreitenWars-Adresse eintragen (Anleitung Schritt 3)
-      url: "https://preitenwars.onrender.com",
+      url: "https://preitenwars.onrender.com/",
 
       art: "wars", // eingebaute Pixel-Grafik
       label: "#e0262c", // Farbe des Modul-Etiketts
