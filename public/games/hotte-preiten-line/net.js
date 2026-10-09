@@ -13,7 +13,7 @@
 // =====================================================================
 const NET_PREFIX = 'hottepreitenline-';
 // Spielversion: Host und Gäste brauchen die gleiche (bei jedem Update ändern!)
-const NET_VER = '2026-10-08-s2e';   // s2b: Benutzernamen (hello/me/cp "n", Spielerliste "ros"); s2c: Gast hackt ('hk'), Gast startet Aufträge ('go'), interaktive Level-Elemente
+const NET_VER = '2026-10-09-boerse';   // s2b: Benutzernamen (hello/me/cp "n", Spielerliste "ros"); s2c: Gast hackt ('hk'), Gast startet Aufträge ('go'), interaktive Level-Elemente
 const NET_SNAP = 1 / 15, NET_SNAP_MS = 1000 / 15;
 const NET_EDGES = ['fireP', 'alt', 'exec', 'finger', 'use', 'wave'];
 const NET_SKIP = new Set(['path', 'pathT', 'target', 'execTarget', 'src', 'lastSeen', 'hits', 'hit', 'route', 'owner', 'nfx', 'nfy', '_h', '_d']);
