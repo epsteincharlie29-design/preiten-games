@@ -1,7 +1,7 @@
 'use strict';
 // =====================================================================
-//  DIE HOTTE PREITEN LINE - Bosse Teil 2: FRAU GRECHENIG (Level 2) und
-//  KUMI IT (Level 5). Beide werden nicht blutig besiegt, sondern K.O.
+//  DIE HOTTE PREITEN LINE - Bosse Teil 2: FRAU GRECHI (Level 2) und
+//  KUMI (Level 5). Beide werden nicht blutig besiegt, sondern K.O.
 // =====================================================================
 
 // ---------- Frau Grechenig: böse Deutschlehrerin ----------

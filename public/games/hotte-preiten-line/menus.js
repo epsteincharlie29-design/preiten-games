@@ -132,8 +132,10 @@ function screenSlots() {
   const items = [1, 2, 3].map((n) => ({ label: 'SPIELSTAND ' + n + ': ' + slotInfo(n), color: n === SLOT ? '#7dff7a' : '#ffffff',
     act: () => { if (!unameAsked()) unameAsk(() => go(n), true); else go(n); } }));
   items.push({ label: 'DEIN NAME: ' + (unameGet() || '(KEINER)'), color: '#ffb52a', act: () => unameAsk(null, false) });
+  items.push({ label: 'SPIELSTÄNDE SICHERN (DATEI)', act: () => saveExport() });
+  items.push({ label: 'SPIELSTÄNDE LADEN (DATEI)', act: () => saveImport() });
   items.push({ label: 'ZURÜCK', act: () => setState('title') });
-  listMenu('slots', items, W / 2, 84, 20, { w: 190 });
+  listMenu('slots', items, W / 2, 80, 18, { w: 190 });
   txt('IM ONLINE-KOOP SPIELT IHR BEIDE AUF DEM SPIELSTAND VOM HOST (GLEICHES KONTO).', W / 2, 220, { font: FS, align: 'center', color: '#cccccc' });
   if (uiActive() && pressed.Escape) setState('title');
 }
@@ -200,6 +202,32 @@ function unameEditor() {
   if (ok || no) { mouse.pl = false; delete pressed.Enter; delete pressed.Escape; }
   return true;
 }
+// Spielstände als Datei sichern / laden (Backup, oder von Desktop zur Website mitnehmen)
+function saveExport() {
+  const d = {};
+  try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (/^(lilPreitner|hpl)/.test(k)) d[k] = localStorage.getItem(k); } } catch (e) { /* egal */ }
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify({ game: 'hotte-preiten-line', v: 1, data: d })], { type: 'application/json' }));
+  a.download = 'hotte-preiten-line-spielstand.json';
+  document.body.appendChild(a); a.click(); a.remove();
+  Sound.play('select');
+}
+function saveImport() {
+  const inp = document.createElement('input');
+  inp.type = 'file'; inp.accept = '.json,application/json';
+  inp.onchange = () => {
+    const f = inp.files && inp.files[0];
+    if (!f) return;
+    f.text().then((t) => {
+      const j = JSON.parse(t);
+      if (!j || j.game !== 'hotte-preiten-line' || !j.data) throw new Error('falsche Datei');
+      for (const k in j.data) if (/^(lilPreitner|hpl)/.test(k)) localStorage.setItem(k, j.data[k]);
+      useSlot(+localStorage.getItem('hpl_slot') || 1);
+      Sound.play('win');
+    }).catch(() => Sound.play('click'));
+  };
+  inp.click();
+}
 function screenControls() {
   drawRoomBg();
   panel(14, 8, W - 28, H - 16, '#3fd0ff');
@@ -253,9 +281,9 @@ const GUIDE = [
     'WER GEGEN DIE WAND FLIEGT, IST ERLEDIGT. DANACH LÄDT SIE NEU AUF.'] },
   { t: 'BOSSE', l: ['BOSSE SIND MIT NORMALEN WAFFEN NICHT ZU KNACKEN - JEDER HAT EINEN TRICK!',
     'ERST WENN ER WEHRLOS IST (STERNE ÜBERM KOPF), WIRKT DEIN SCHADEN - DOPPELT.',
-    'LEVEL 2  - FRAU GRECHENIG: AUF DIE PAUSENGLOCKEN HAUEN.',
+    'LEVEL 2  - FRAU GRECHI: AUF DIE PAUSENGLOCKEN HAUEN.',
     'LEVEL 4  - GÜNTHER: LASS IHN GEGEN DIE WAND RENNEN.',
-    'LEVEL 5  - KUMI IT: ERST DIE ROUTER ZERSTÖREN, DANN DEN STECKER ZIEHEN.',
+    'LEVEL 5  - KUMI: ERST DIE ROUTER ZERSTÖREN, DANN DEN STECKER ZIEHEN.',
     'LEVEL 8  - DER CROUPIER: WIRF WAS NACH IHM (RECHTSKLICK), DANN ZUHAUEN.',
     'LEVEL 11 - BAKA BAKA BAKA: DEM BAUCHPLATSCHER AUSWEICHEN, DANN ZUHAUEN.',
     'LEVEL 14 - ZITRO ZACKZACK: ZUCKERSACK KAPUTTHAUEN - ER RENNT HIN UND FRISST.',

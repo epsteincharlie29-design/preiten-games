@@ -6,8 +6,8 @@ const BOSS_INFO = {
   guenther: { name: 'GÜNTHER, DER WURSTPATE', hp: 30, r: 11, song: 'boss' },
   croupier: { name: 'DER CROUPIER', hp: 36, r: 9, song: 'boss' },
   hacker: { name: 'RUSSIAN HACKER BOI', hp: 90, r: 10, song: 'final' },
-  grechenig: { name: 'FRAU GRECHENIG', hp: 40, r: 8, song: 'boss', noGore: true },
-  tabluator: { name: 'KUMI IT', hp: 50, r: 8, song: 'boss', noGore: true },
+  grechenig: { name: 'FRAU GRECHI', hp: 40, r: 8, song: 'boss', noGore: true },
+  tabluator: { name: 'KUMI', hp: 50, r: 8, song: 'boss', noGore: true },
 };
 const L_BOSS = {
   guenther: ['WURST-ZEIT!', 'SENF DAZU?', 'ISS DAS!', 'FRISCH VOM GRILL!', 'MEIN REVIER!', 'BINGO! HAHA!'],

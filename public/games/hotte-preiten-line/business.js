@@ -87,9 +87,9 @@ const upDesc = (u, lv) => (typeof u.desc === 'function' ? u.desc(lv) : u.desc);
 const upRank = (u, lv) => (typeof u.rank === 'function' ? u.rank(lv) : u.rank);
 const CUSTOMER_NAMES = ['KEVIN', 'OMA HILDE', 'JUSTIN', 'CHANTAL', 'HERR MÜLLER', 'DIE BAUARBEITER', 'DER POSTBOTE', 'LISA', 'MEHMET', 'DIE SCHACHGRUPPE', 'DJ BASSBOX', 'DER KIOSK-MANN', 'BAUER HEINZ', 'FRAU SONNENSCHEIN'];
 const SPECIAL_CUSTOMERS = [
-  { level: 1, name: 'FRAU GRECHENIG', line: 'OHNE ZUCKER. UND FOOOKUSSS BEIM LIEFERN.' },
+  { level: 1, name: 'FRAU GRECHI', line: 'OHNE ZUCKER. UND FOOOKUSSS BEIM LIEFERN.' },
   { level: 3, name: 'GÜNTHER', line: 'MIT WURST-SALZ. ICH BIN JETZT DEIN FAN.' },
-  { level: 4, name: 'KUMI IT', line: 'BITTE PER PAKET. PING MICH AN.' },
+  { level: 4, name: 'KUMI', line: 'BITTE PER PAKET. PING MICH AN.' },
   { level: 10, name: 'BAKA BAKA BAKA', line: 'BAKA-BRAUSE!!! SOFORT!!!' },
 ];
 

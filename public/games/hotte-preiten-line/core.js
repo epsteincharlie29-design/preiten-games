@@ -71,6 +71,8 @@ const anyConfirm = () => pressed.Enter || pressed.Space || mouse.pl;
 
 // ---------- Speicherstand ----------
 const SAVE_KEY = 'lilPreitner_v1';
+// Browser bitten, die Spielstände nie automatisch zu löschen
+try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) { /* egal */ }
 let SLOT = 1; try { SLOT = +localStorage.getItem('hpl_slot') || 1; } catch (e) { /* egal */ }
 const slotKey = (n) => (n === 1 ? SAVE_KEY : SAVE_KEY + '_s' + n);
 function defaultSave() {

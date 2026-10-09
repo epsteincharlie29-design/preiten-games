@@ -215,7 +215,7 @@ const LEVELS = [
     ],
   },
   {
-    name: 'KABELZENTRALE', chapter: 'LEVEL 5: KUMI IT', date: '8. OKTOBER - 10:10 UHR',
+    name: 'KABELZENTRALE', chapter: 'LEVEL 5: KUMI', date: '8. OKTOBER - 10:10 UHR',
     song: 'cyber', intro: 'intro5', diff: 5, theme: 'network',
     floors: [
       { name: 'SERVERFLUR', gen: { seed: 5120, w: 48, h: 26, enemies: 15, mix: { E: 4, M: 3, S: 2, U: 2, Y: 1, R: 1 }, items: 5, cash: 8, safes: 1, osaft: 1, feat: { shelves: 0.45, glass: 0.25, tables: 0.1 } } },

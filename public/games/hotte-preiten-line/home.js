@@ -21,8 +21,8 @@ const FURNITURE = [
 ];
 // Trophäen der Bosse (erscheinen automatisch im Regal)
 const TROPHIES = [
-  { level: 1, col: '#c41f2a', name: 'GRECHENIGS BRILLE' }, { level: 3, col: '#a0522d', name: 'GÜNTHERS WURST' },
-  { level: 4, col: '#3fd0ff', name: 'KUMI ITS ROUTER' }, { level: 7, col: '#ffd23f', name: 'CROUPIER-KARTE' },
+  { level: 1, col: '#c41f2a', name: 'GRECHIS BRILLE' }, { level: 3, col: '#a0522d', name: 'GÜNTHERS WURST' },
+  { level: 4, col: '#3fd0ff', name: 'KUMIS ROUTER' }, { level: 7, col: '#ffd23f', name: 'CROUPIER-KARTE' },
   { level: 10, col: '#ff7a2a', name: 'BAKA-RAMEN' }, { level: 18, col: '#39ff7a', name: 'DAS TEBLEEDD' },
   { level: 13, col: '#fff04d', name: 'ZITROS SONNENBRILLE' }, { level: 14, col: '#ff2020', name: 'CLOWNSNASE' }, { level: 15, col: '#7dff7a', name: 'REBOOT-KNOPF' },
   { level: 16, col: '#c8a040', name: 'SCHROTTKRONE' }, { level: 17, col: '#ffe14d', name: 'GOLDENER BUZZER' },
